@@ -43,7 +43,6 @@
 .ticker-group { display: flex; gap: 28px; align-items: center; padding-right: 28px; }
 .ticker b { font-size: 14px; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
 
 .section-heading { margin-bottom: 50px; }
 .section-number, .section-kicker { font: 700 10px 'Inter'; letter-spacing: .16em; text-transform: uppercase; }
