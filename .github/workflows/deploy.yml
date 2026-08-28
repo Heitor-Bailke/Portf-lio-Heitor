@@ -25,11 +25,12 @@ jobs:
         run: npm ci --legacy-peer-deps
       
       - name: Build project
-        run: npm run build -- --base-href=/Portf-lio-Heitor/
+        run: npm run build -- --base-href=/
       
       - name: Deploy
         run: |
           cd dist/heitor-dev-portfolio/browser
+          echo "heitorbailkedev.com.br" > CNAME
           git init
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
