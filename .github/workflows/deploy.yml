@@ -11,21 +11,22 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       
       - name: Build project
-        run: npm run build -- --base-href=/Portfólio-Heitor/
+        run: npm run build -- --base-href=/Portf-lio-Heitor/
       
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/heitor-dev-portfolio
+          force_orphan: true
