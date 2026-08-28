@@ -1,0 +1,173 @@
+<header class="navbar">
+  <div class="container nav-inner">
+    <button class="brand" (click)="scrollTo('inicio')" aria-label="Voltar ao início">
+      HEITOR<span>.DEV</span>
+    </button>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <button (click)="scrollTo('inicio')">Início</button>
+      <button (click)="scrollTo('projetos')">Projetos</button>
+      <button (click)="scrollTo('servicos')">Serviços</button>
+      <button (click)="scrollTo('sobre')">Sobre</button>
+      <button (click)="scrollTo('contato')">Contato</button>
+    </nav>
+
+    <button class="nav-cta" (click)="scrollTo('contato')">Vamos conversar <span>↗</span></button>
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Abrir menu">☰</button>
+  </div>
+
+  <nav class="mobile-nav" [class.open]="mobileMenuOpen" aria-label="Navegação mobile">
+    <button (click)="scrollTo('inicio')">Início</button>
+    <button (click)="scrollTo('projetos')">Projetos</button>
+    <button (click)="scrollTo('servicos')">Serviços</button>
+    <button (click)="scrollTo('sobre')">Sobre</button>
+    <button (click)="scrollTo('contato')">Contato</button>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio" class="hero section-dark">
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-copy reveal is-visible">
+        <div class="eyebrow"><span class="status-dot"></span> Disponível para novos projetos</div>
+        <h1>Desenvolvedor <span>Full Stack</span><br />criando experiências digitais.</h1>
+        <p>
+          Transformo ideias em landing pages, sites e aplicações web modernas,
+          responsivas e funcionais.
+        </p>
+        <div class="hero-actions">
+          <button class="button primary" (click)="scrollTo('projetos')">Ver projetos <span>↓</span></button>
+          <button class="button ghost" (click)="scrollTo('contato')">Entrar em contato <span>↗</span></button>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/heitorbailke" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com/in/heitorbailke" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal is-visible">
+        <app-react-widget></app-react-widget>
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL <span>↓</span></div>
+  </section>
+
+  <section class="ticker">
+    <div class="ticker-track">
+      <span>DESENVOLVIMENTO WEB</span><b>✦</b><span>LANDING PAGES</span><b>✦</b><span>SISTEMAS WEB</span><b>✦</b><span>APIs REST</span><b>✦</b>
+      <span>DESENVOLVIMENTO WEB</span><b>✦</b><span>LANDING PAGES</span><b>✦</b><span>SISTEMAS WEB</span><b>✦</b><span>APIs REST</span><b>✦</b>
+    </div>
+  </section>
+
+  <section id="projetos" class="section section-light">
+    <div class="container">
+      <div class="section-heading reveal is-visible">
+        <div><span class="section-number">01 /</span><span class="section-kicker">PORTFÓLIO</span></div>
+        <h2>Projetos que <em>ganham vida.</em></h2>
+        <p>Uma seleção de projetos desenvolvidos para praticar, experimentar e resolver problemas reais.</p>
+      </div>
+
+      <div class="filters reveal is-visible">
+        <button *ngFor="let filter of filters" [class.active]="activeFilter === filter" (click)="setFilter(filter)">{{ filter }}</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal is-visible" *ngFor="let project of filteredProjects; let i = index">
+          <div class="project-preview" [class.alt]="i % 2 !== 0 && !project.image" [style.backgroundImage]="project.image ? 'url(' + project.image + ')' : (project.gradient ? project.gradient : 'none')" [style.background]="project.gradient && !project.image ? project.gradient : ''">
+            <div *ngIf="!project.image && !project.gradient" class="preview-browser"><span></span><span></span><span></span></div>
+            <div *ngIf="!project.image && !project.gradient" class="preview-content">
+              <small>{{ project.category }}</small>
+              <strong>{{ project.title }}</strong>
+              <div class="preview-lines"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-title-row">
+              <div><small>{{ project.category }}</small><h3>{{ project.title }}</h3></div>
+              <a [href]="project.link" aria-label="Abrir projeto">↗</a>
+            </div>
+            <p>{{ project.description }}</p>
+            <div class="tags"><span *ngFor="let technology of project.technologies">{{ technology }}</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" class="section section-dark services-section">
+    <div class="container">
+      <div class="section-heading light reveal">
+        <div><span class="section-number">02 /</span><span class="section-kicker">SERVIÇOS</span></div>
+        <h2>O que posso <em>construir.</em></h2>
+      </div>
+
+      <div class="service-list">
+        <article class="service reveal"><span>01</span><div><h3>Landing Pages</h3><p>Páginas rápidas, responsivas e pensadas para apresentar sua marca, produto ou serviço.</p></div><b>↗</b></article>
+        <article class="service reveal"><span>02</span><div><h3>Sites Institucionais</h3><p>Presença digital profissional para empresas, profissionais e negócios.</p></div><b>↗</b></article>
+        <article class="service reveal"><span>03</span><div><h3>Sistemas Web</h3><p>Aplicações personalizadas para organizar processos e facilitar o dia a dia.</p></div><b>↗</b></article>
+        <article class="service reveal"><span>04</span><div><h3>APIs REST</h3><p>Back-end estruturado para conectar aplicações, dados e serviços.</p></div><b>↗</b></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section landing-section section-accent">
+    <div class="container landing-layout">
+      <div class="landing-copy reveal">
+        <span class="section-number">03 /</span><span class="section-kicker">PARA NEGÓCIOS</span>
+        <h2>Sua empresa merece uma presença <em>digital de verdade.</em></h2>
+        <p>Uma landing page bem construída pode ser o primeiro passo para transformar visitantes em clientes.</p>
+        <button class="button dark-button" (click)="scrollTo('contato')">Quero uma Landing Page ↗</button>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-item"><b>01</b><span>Entendimento</span><small>Objetivos, público e necessidades.</small></div>
+        <div class="process-item"><b>02</b><span>Estrutura</span><small>Experiência visual e conteúdo.</small></div>
+        <div class="process-item"><b>03</b><span>Desenvolvimento</span><small>Código limpo e responsivo.</small></div>
+        <div class="process-item"><b>04</b><span>Entrega</span><small>Projeto pronto para ir ao ar.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section section-light">
+    <div class="container about-layout">
+      <div class="about-title reveal"><span class="section-number">04 /</span><span class="section-kicker">SOBRE MIM</span><h2>Olá, eu sou o <em>Heitor.</em></h2></div>
+      <div class="about-copy reveal">
+        <p class="lead">Sou estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor focado em aplicações web.</p>
+        <p>Minha jornada começou no front-end e hoje também exploro o back-end, principalmente com Java e Spring Boot. Gosto de transformar ideias em projetos reais, unindo código organizado, boas interfaces e uma experiência agradável para o usuário.</p>
+        <div class="about-points"><span>✦ Full Stack</span><span>✦ Java + Spring Boot</span><span>✦ React / Angular</span><span>✦ APIs REST</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-section section-dark">
+    <div class="container tech-layout">
+      <div class="tech-heading reveal"><span class="section-number">05 /</span><span class="section-kicker">STACK</span><h2>Ferramentas para<br /><em>tirar ideias do papel.</em></h2></div>
+      <div class="tech-cloud reveal"><span *ngFor="let technology of technologies">{{ technology }}</span></div>
+    </div>
+  </section>
+
+  <section class="github-section section-light">
+    <div class="container github-card reveal">
+      <div><span class="section-number">06 / GITHUB</span><h2>Código aberto.<br /><em>Projetos reais.</em></h2></div>
+      <div><p>Também compartilho projetos e estudos no GitHub. O código é parte importante da minha evolução como desenvolvedor.</p><a class="button outline" href="https://github.com/heitorbailke" target="_blank" rel="noreferrer">Ver GitHub ↗</a></div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact-section section-dark">
+    <div class="container contact-layout">
+      <div class="contact-copy reveal"><span class="section-number">07 / CONTATO</span><h2>Tem uma <em>ideia?</em></h2><p>Vamos transformar ela em um projeto profissional.</p><div class="contact-direct"><a href="mailto:heitorbailkedev@hotmail.com">heitorbailkedev@hotmail.com ↗</a><a href="https://wa.me/5527999068603" target="_blank" rel="noreferrer">WhatsApp ↗</a></div></div>
+      <form class="contact-form reveal" (ngSubmit)="submitContact()" #contactForm="ngForm">
+        <label>Seu nome<input name="name" [(ngModel)]="visitorName" required placeholder="Como posso te chamar?" /></label>
+        <label>Seu e-mail<input type="email" name="email" [(ngModel)]="visitorEmail" required placeholder="voce@email.com" /></label>
+        <label>Mensagem<textarea name="message" [(ngModel)]="visitorMessage" required rows="5" placeholder="Conte um pouco sobre o seu projeto..."></textarea></label>
+        <button class="button primary full" type="submit" [disabled]="contactForm.invalid || isLoading">{{ isLoading ? 'Enviando...' : 'Enviar mensagem' }} ↗</button>
+        <p class="form-feedback success" *ngIf="successMessage">✓ {{ successMessage }}</p>
+        <p class="form-feedback error" *ngIf="errorMessage">✗ {{ errorMessage }}</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner"><strong>HEITOR<span>.DEV</span></strong><span>Desenvolvendo experiências digitais.</span><span>© 2026 Heitor Bailke de Bem</span></div>
+</footer>
