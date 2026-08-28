@@ -136,6 +136,9 @@
 .form-feedback { color: #a78bfa; font-size: 11px; }
 .form-feedback.success { color: #4ade80; animation: slideIn .3s ease-out; }
 .form-feedback.error { color: #ef4444; animation: slideIn .3s ease-out; }
+.whatsapp-float { position: fixed; right: 24px; bottom: 24px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 999px; background: #25d366; color: #102617; box-shadow: 0 12px 28px rgba(0,0,0,.28); font: 800 12px 'Inter'; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.whatsapp-float b { font-size: 16px; line-height: 1; }
+.whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(37,211,102,.35); }
 @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 .footer { background: #050505; color: #777; border-top: 1px solid #191919; padding: 25px 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 10px; }
@@ -158,6 +161,7 @@
   .service h3 { font-size: 24px; }
   .github-card { padding: 35px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+  .whatsapp-float { right: 16px; bottom: 16px; }
 }
 
 @media (max-width: 520px) {
