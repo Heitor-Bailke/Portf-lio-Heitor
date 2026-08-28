@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   submitted = false;
   visitorName = '';
   visitorEmail = '';
+  visitorPhone = '';
   visitorMessage = '';
   
   isLoading = false;
@@ -112,7 +113,7 @@ export class AppComponent implements OnInit {
   }
 
   submitContact(): void {
-    if (!this.visitorName.trim() || !this.visitorEmail.trim() || !this.visitorMessage.trim()) {
+    if (!this.visitorName.trim() || !this.visitorEmail.trim() || !this.visitorPhone.trim() || !this.visitorMessage.trim()) {
       this.errorMessage = 'Por favor, preencha todos os campos.';
       this.successMessage = '';
       return;
@@ -131,6 +132,7 @@ export class AppComponent implements OnInit {
     this.contactService.submitContact({
       name: this.visitorName,
       email: this.visitorEmail,
+      phone: this.visitorPhone,
       message: this.visitorMessage
     }).subscribe({
       next: (response) => {
@@ -156,6 +158,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.visitorName = '';
       this.visitorEmail = '';
+      this.visitorPhone = '';
       this.visitorMessage = '';
       this.submitted = false;
       this.successMessage = '';
