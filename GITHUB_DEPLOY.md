@@ -5,7 +5,7 @@ Seu portfólio está pronto para ir ao ar! Siga estas instruções:
 ## 1️⃣ Criar Repositório no GitHub
 
 1. Acesse [github.com/new](https://github.com/new)
-2. Crie um repositório com o nome: **`heitorbailke.github.io`**
+2. Crie um repositório com o nome: **`Portfólio-Heitor`**
 3. **NÃO** inicialize com README, .gitignore ou licença
 4. Clique em "Create repository"
 
@@ -14,11 +14,9 @@ Seu portfólio está pronto para ir ao ar! Siga estas instruções:
 Execute no terminal (dentro da pasta do projeto):
 
 ```bash
-git remote add origin https://github.com/SEU_USUARIO/heitorbailke.github.io.git
+git remote add origin https://github.com/heitorbailke/Portfólio-Heitor.git
 git push -u origin main
 ```
-
-⚠️ **Substitua `SEU_USUARIO` pelo seu usuário do GitHub!**
 
 ## 3️⃣ Configurar GitHub Pages
 
@@ -33,14 +31,13 @@ git push -u origin main
 
 Seu portfólio ficará online em:
 ```
-https://heitorbailke.github.io/
+https://heitorbailke.github.io/Portfólio-Heitor/
 ```
 
 ## 📝 Para Futuras Atualizações
 
 Sempre que quiser atualizar:
 ```bash
-npm run build  # (já foi feito, mas faça quando mudar código)
 git add .
 git commit -m "Descrição da mudança"
 git push origin main
@@ -54,6 +51,7 @@ O **GitHub Actions** vai fazer o deploy automaticamente! ✨
 - ✅ Projeto compilado (build)
 - ✅ GitHub Actions configurado (deploy automático)
 - ✅ Git inicializado e commitado
+- ✅ Base URL configurada para `/Portfólio-Heitor/`
 - ✅ Pronto para push
 
-**Agora execute o comando do Passo 2 acima!** 🚀
+**Agora execute os comandos do Passo 2 acima!** 🚀
