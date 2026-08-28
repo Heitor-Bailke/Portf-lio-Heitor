@@ -83,14 +83,24 @@
       </div>
 
       <div class="project-grid">
-        <article class="project-card reveal is-visible" *ngFor="let project of filteredProjects; let i = index">
-          <div class="project-preview" [class.alt]="i % 2 !== 0 && !project.image" [style.backgroundImage]="project.image ? 'url(' + project.image + ')' : (project.gradient ? project.gradient : 'none')" [style.background]="project.gradient && !project.image ? project.gradient : ''">
-            <div *ngIf="!project.image && !project.gradient" class="preview-browser"><span></span><span></span><span></span></div>
-            <div *ngIf="!project.image && !project.gradient" class="preview-content">
-              <small>{{ project.category }}</small>
-              <strong>{{ project.title }}</strong>
-              <div class="preview-lines"><i></i><i></i><i></i></div>
-            </div>
+        <article class="project-card reveal is-visible" *ngFor="let project of filteredProjects">
+          <div class="project-preview" [class.finance-preview]="project.title === 'Sistema Financeiro'" [class.api-preview]="project.title === 'API de Usuário'">
+            <img *ngIf="project.image" [src]="project.image" [alt]="'Prévia do projeto ' + project.title">
+            <ng-container *ngIf="!project.image">
+              <div class="preview-browser"><span></span><span></span><span></span><small>{{ project.category }}</small></div>
+              <div *ngIf="project.title === 'Sistema Financeiro'; else apiPreview" class="finance-interface">
+                <div class="finance-heading"><span>Visão geral</span><b>R$ 24.850,00</b></div>
+                <div class="finance-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="finance-summary"><span>Receitas</span><span>Despesas</span><span>Saldo</span></div>
+              </div>
+              <ng-template #apiPreview>
+                <div class="api-interface">
+                  <span class="api-method">POST</span><code>/api/v1/usuarios</code>
+                  <div class="api-line"><i></i><span>200 OK</span></div>
+                  <div class="api-code">&#123; <em>"token"</em>: <b>"jwt_..."</b> &#125;</div>
+                </div>
+              </ng-template>
+            </ng-container>
           </div>
           <div class="project-info">
             <div class="project-title-row">

@@ -13,7 +13,6 @@ interface Project {
   github: string;
   featured?: boolean;
   image?: string;
-  gradient?: string;
 }
 
 @Component({
@@ -64,8 +63,7 @@ export class AppComponent implements OnInit {
       description: 'Aplicação para organização de receitas, despesas e informações financeiras com dashboard interativo.',
       technologies: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
       link: '#',
-      github: '#',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      github: '#'
     },
     {
       title: 'API de Usuário',
@@ -73,8 +71,7 @@ export class AppComponent implements OnInit {
       description: 'API REST completa com autenticação JWT, autorização por roles, CRUD de usuários e integração com PostgreSQL.',
       technologies: ['Java', 'Spring Boot', 'JWT', 'PostgreSQL', 'REST'],
       link: '#',
-      github: 'https://github.com/Heitor-Bailke/usuario',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      github: 'https://github.com/Heitor-Bailke/usuario'
     }
   ];
 
