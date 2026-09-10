@@ -39,6 +39,16 @@ export class AppComponent implements OnInit {
 
   readonly projects: Project[] = [
     {
+      title: 'André Fisioterapeuta',
+      category: 'Landing Pages',
+      description: 'Site para fisioterapia domiciliar e Pilates, com apresentação profissional, informações sobre os serviços e contato direto pelo WhatsApp.',
+      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+      link: 'https://heitor-bailke.github.io/Andre_Fisioterapeuta/',
+      github: 'https://github.com/Heitor-Bailke/Andre_Fisioterapeuta',
+      featured: true,
+      image: 'assets/projects/andre-fisioterapeuta.png'
+    },
+    {
       title: 'Noroeste Guincho',
       category: 'Landing Pages',
       description: 'Landing page para serviço de reboque e auto socorro 24h. Design moderno com CTA estratégicos e informações de serviço.',
