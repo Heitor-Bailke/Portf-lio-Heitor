@@ -1,0 +1,83 @@
+﻿[appReveal] {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.reveal-entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy {
+    animation: hero-enter 0.85s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+  }
+  .hero app-orbit {
+    animation: hero-enter 0.9s 0.1s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+  }
+  .mini-chart i {
+    animation: bar-grow 0.85s ease-out both;
+  }
+}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bar-grow {
+  from {
+    transform: scaleY(0.2);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+html[data-motion="off"] {
+  scroll-behavior: auto;
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html[data-motion="off"] .reveal-pending {
+  opacity: 1;
+  transform: none;
+}
+html[data-motion="off"] .hero-copy,
+html[data-motion="off"] .hero app-orbit {
+  animation: none !important;
+  opacity: 1;
+}
+html[data-motion="off"] .orbit-scene {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+  .orbit-scene {
+    transform: none;
+  }
+}

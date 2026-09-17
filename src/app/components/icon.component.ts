@@ -1,0 +1,82 @@
+﻿import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+const ICONS: Record<string, string[]> = {
+  code: ["m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"],
+  arrow: ["M5 12h14m-6-6 6 6-6 6"],
+  external: ["M7 17 17 7M7 7h10v10"],
+  download: ["M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"],
+  java: [
+    "M6 12h10v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-5ZM16 13h2a2 2 0 0 1 0 4h-2M9 9c-4-3 5-3 1-7m4 7c-3-2 3-3 2-5M3 23h17",
+  ],
+  spring: ["M20 3C8 1 2 8 5 16c3 8 17 3 15-13ZM5 20 17 7M8 14l5 1"],
+  angular: ["m12 2 10 4-2 13-8 4-8-4L2 6l10-4ZM7 16l5-10 5 10M9 13h6"],
+  react: [
+    "M12 10a2 2 0 1 0 0 4 2 2 0 1 0 0-4ZM23 12c0 3-22 3-22 0s22-3 22 0ZM17.5 2.5c2.6 1.5-8.4 20.5-11 19S14.9 1 17.5 2.5ZM6.5 2.5c-2.6 1.5 8.4 20.5 11 19S9.1 1 6.5 2.5Z",
+  ],
+  database: [
+    "M3 6c0-5 18-5 18 0S3 11 3 6ZM3 6v12c0 5 18 5 18 0V6M3 12c0 5 18 5 18 0",
+  ],
+  docker: [
+    "M2 12h16c1-3 3-3 4-2-1 2-2 3-4 3-1 6-13 10-16-1ZM4 8h3v4H4zm4 0h3v4H8zm4 0h3v4h-3zm-4-4h3v4H8zm4 0h3v4h-3z",
+  ],
+  git: ["m12 2 10 10-10 10L2 12 12 2ZM8 6l8 8M10 8v9M9 8h2m4 6h2"],
+  github: [
+    "M9 19c-5 1-5-2-7-2m15 5v-4c0-1-.5-2-1-2 4-.5 6-2 6-6 0-2-.5-3-2-4 0-1 0-2-.5-3-2 0-3 1-4 1a14 14 0 0 0-7 0C7 3 5 2 4 3c-.5 1-.5 2 0 3-1 1-2 2-2 4 0 4 2 5.5 6 6-1 1-1 2-1 3v3",
+  ],
+  linkedin: ["M4 9v12M4 3v1M10 21V9h4v2c4-5 7-1 7 2v8M14 13v8"],
+  shield: ["m12 2 9 4v6c0 5-6 9-9 10-3-1-9-5-9-10V6l9-4ZM8 12l3 3 5-6"],
+  layers: ["m12 2 10 6-10 6L2 8l10-6ZM2 12l10 6 10-6M2 16l10 6 10-6"],
+  screen: ["M2 3h20v14H2V3Zm6 19h8m-4-5v5M6 7h5m-5 4h9"],
+  terminal: ["m5 7 5 5-5 5m8 0h6"],
+  grid: ["M3 3h7v7H3V3Zm11 0h7v7h-7V3ZM3 14h7v7H3v-7Zm11 0h7v7h-7v-7Z"],
+  mail: ["M2 5h20v14H2V5Zm0 1 10 7L22 6"],
+  location: [
+    "M12 22S4 14 4 9a8 8 0 1 1 16 0c0 5-8 13-8 13ZM12 6a3 3 0 1 0 0 6 3 3 0 1 0 0-6Z",
+  ],
+  book: ["m2 8 10-5 10 5-10 5L2 8Zm4 2v7c4 3 8 3 12 0v-7m4-2v9"],
+  briefcase: ["M3 7h18v14H3V7Zm5 0V3h8v4M3 12c6 4 12 4 18 0m-9 0v4"],
+  check: ["m5 12 4 4L19 6"],
+  pause: ["M8 5v14M16 5v14"],
+  play: ["m8 4 12 8-12 8V4Z"],
+  menu: ["M4 6h16M4 12h16M4 18h16"],
+  close: ["m6 6 12 12M6 18 18 6"],
+};
+@Component({
+  selector: "app-icon",
+  standalone: true,
+  imports: [CommonModule],
+  template: `<svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path *ngFor="let path of paths" [attr.d]="path" />
+  </svg>`,
+  styles: [
+    `
+      :host {
+        display: inline-flex;
+        width: 1.2em;
+        height: 1.2em;
+        flex-shrink: 0;
+        vertical-align: middle;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+    `,
+  ],
+})
+export class IconComponent {
+  @Input() name = "code";
+  get paths(): string[] {
+    return ICONS[this.name] || ICONS["code"];
+  }
+}

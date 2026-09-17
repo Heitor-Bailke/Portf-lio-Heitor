@@ -1,6 +1,10 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "types": [] },
+  "compilerOptions": {
+    "types": [],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
   "files": ["src/main.ts"],
   "include": ["src/**/*.d.ts"]
 }

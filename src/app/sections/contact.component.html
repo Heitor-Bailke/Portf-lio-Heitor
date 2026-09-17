@@ -1,0 +1,92 @@
+<section id="contato" class="section contact-section">
+  <div class="container contact-layout">
+    <div appReveal>
+      <p class="eyebrow">09 / O PRÓXIMO PASSO COMEÇA COM UMA CONVERSA</p>
+      <span class="availability"
+        ><span class="status-dot"></span> ABERTO A OPORTUNIDADES</span
+      >
+      <h2>Vamos<br /><span class="accent">conversar?</span></h2>
+      <p class="contact-intro">
+        Estou aberto a oportunidades como Desenvolvedor Back-end Júnior ou
+        Desenvolvedor Front-end Júnior e busco fazer parte de um time onde eu
+        possa contribuir, aprender e continuar evoluindo como desenvolvedor.
+      </p>
+      <a class="button" [href]="'mailto:' + profile.email"
+        >Entrar em contato <app-icon name="arrow"
+      /></a>
+      <div class="contact-links">
+        <a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer"
+          ><app-icon name="linkedin" /> LinkedIn ↗</a
+        ><a [href]="profile.github" target="_blank" rel="noopener noreferrer"
+          ><app-icon name="github" /> GitHub ↗</a
+        ><a [href]="'mailto:' + profile.email"
+          ><app-icon name="mail" /> {{ profile.email }}</a
+        ><a [href]="profile.portfolio" target="_blank" rel="noopener noreferrer"
+          ><app-icon name="code" /> heitorbailkedev.com.br ↗</a
+        >
+      </div>
+    </div>
+    <form
+      class="contact-form glass"
+      appReveal
+      (ngSubmit)="submitContact(contactForm)"
+      #contactForm="ngForm"
+      [attr.aria-busy]="isLoading"
+    >
+      <h3>Envie uma mensagem</h3>
+      <label for="contact-name"
+        >Nome<input
+          id="contact-name"
+          name="name"
+          [(ngModel)]="visitorName"
+          required
+          maxlength="120"
+          autocomplete="name"
+          placeholder="Como posso te chamar?"
+          [disabled]="isLoading" /></label
+      ><label for="contact-email"
+        >E-mail<input
+          id="contact-email"
+          type="email"
+          name="email"
+          [(ngModel)]="visitorEmail"
+          required
+          email
+          maxlength="254"
+          autocomplete="email"
+          placeholder="voce@empresa.com"
+          [disabled]="isLoading" /></label
+      ><label for="contact-phone"
+        >Telefone <span>(opcional)</span
+        ><input
+          id="contact-phone"
+          type="tel"
+          name="phone"
+          [(ngModel)]="visitorPhone"
+          maxlength="30"
+          autocomplete="tel"
+          placeholder="(00) 00000-0000"
+          [disabled]="isLoading" /></label
+      ><label for="contact-message"
+        >Mensagem<textarea
+          id="contact-message"
+          name="message"
+          [(ngModel)]="visitorMessage"
+          required
+          maxlength="5000"
+          rows="4"
+          placeholder="Conte sobre a oportunidade ou deixe sua mensagem."
+          [disabled]="isLoading"
+        ></textarea></label
+      ><button class="button" type="submit" [disabled]="isLoading">
+        {{ isLoading ? "Enviando…" : "Enviar mensagem ↗" }}
+      </button>
+      <div aria-live="polite" aria-atomic="true">
+        <p class="feedback success" *ngIf="successMessage">
+          {{ successMessage }}
+        </p>
+        <p class="feedback error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </div>
+    </form>
+  </div>
+</section>

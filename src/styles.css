@@ -1,5 +1,6 @@
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: 'Inter', sans-serif; background: #0a0a0a; }
-button, input, textarea { font: inherit; }
-::selection { background: #b8ff35; color: #111; }
+﻿@import "./styles/base.css";
+@import "./styles/navigation.css";
+@import "./styles/hero.css";
+@import "./styles/sections.css";
+@import "./styles/projects.css";
+@import "./styles/motion.css";
