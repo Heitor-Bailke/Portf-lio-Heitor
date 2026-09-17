@@ -44,11 +44,6 @@ import { ORBIT_TECHNOLOGIES } from "../data/technologies";
     </div>
     <span class="orbit-particle particle-one" aria-hidden="true"></span
     ><span class="orbit-particle particle-two" aria-hidden="true"></span>
-    <div class="portrait-label">
-      <span class="status-dot"></span
-      ><span>Heitor Bailke<small>código, interface & propósito.</small></span
-      ><app-icon name="code" />
-    </div>
     <span class="orbit-caption orbit-caption-top" aria-hidden="true"
       >&lt; developer /&gt;</span
     ><span class="orbit-caption orbit-caption-bottom" aria-hidden="true"
