@@ -51,8 +51,13 @@ import { PROFILE } from "../data/profile";
               target="_blank"
               rel="noopener noreferrer"
               ><app-icon name="linkedin" /> LinkedIn <span>↗</span></a
+            ><a
+              [href]="profile.whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><app-icon name="whatsapp" /> WhatsApp <span>↗</span></a
             ><span class="hero-location"
-              ><app-icon name="location" /> Vila Velha, ES</span
+              ><app-icon name="location" /> Colatina, ES</span
             >
           </div>
         </div>
