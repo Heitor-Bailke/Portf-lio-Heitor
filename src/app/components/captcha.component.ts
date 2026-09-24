@@ -74,7 +74,7 @@ export class CaptchaComponent implements AfterViewInit, OnDestroy {
         return;
       }
       this.widget = this.api.render(this.host.nativeElement, {
-        sitekey: "6Lfq3cwtAAAAAO3Z7RPva6encoUQSXdn3yQQYXjW",
+        sitekey: "6LfH4cwtAAAAAH8lzQZa00DXzGs_xfhRmROLEbOk",
         theme: document.documentElement.dataset["theme"] === "dark" ? "dark" : "light",
         size: this.host.nativeElement.clientWidth < 304 ? "compact" : "normal",
         callback: (token: string) => this.update(token, ""),
