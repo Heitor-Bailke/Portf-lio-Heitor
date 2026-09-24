@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { NavigationEnd, Router, RouterLink } from "@angular/router";
 import { Subscription } from "rxjs";
 import { IconComponent } from "./icon.component";
-import { MotionService } from "../services/motion.service";
+import { ThemeService } from "../services/theme.service";
 import { PROFILE } from "../data/profile";
 @Component({
   selector: "app-navbar",
@@ -37,27 +37,14 @@ import { PROFILE } from "../data/profile";
       </nav>
       <div class="nav-actions">
         <button
-          class="motion-toggle"
+          class="theme-toggle"
           type="button"
-          (click)="motion.toggle()"
-          [disabled]="motion.reduced()"
-          [attr.aria-pressed]="motion.paused()"
-          [attr.aria-label]="
-            motion.reduced()
-              ? 'Movimento reduzido pelo sistema'
-              : motion.paused()
-                ? 'Ativar animações'
-                : 'Pausar animações'
-          "
-          [attr.title]="
-            motion.reduced()
-              ? 'Movimento reduzido pelo sistema'
-              : motion.paused()
-                ? 'Ativar animações'
-                : 'Pausar animações'
-          "
+          (click)="theme.toggle()"
+          [attr.aria-pressed]="theme.dark()"
+          aria-label="Modo escuro"
+          [attr.title]="theme.dark() ? 'Ativar modo claro' : 'Ativar modo escuro'"
         >
-          <app-icon [name]="motion.enabled ? 'pause' : 'play'" /></button
+          <app-icon [name]="theme.dark() ? 'sun' : 'moon'" /></button
         ><a
           class="button secondary small nav-resume"
           [href]="profile.resumeUrl"
@@ -96,7 +83,7 @@ import { PROFILE } from "../data/profile";
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   readonly profile = PROFILE;
-  readonly motion = inject(MotionService);
+  readonly theme = inject(ThemeService);
   readonly links = [
     { id: "inicio", label: "Início" },
     { id: "sobre", label: "Sobre" },

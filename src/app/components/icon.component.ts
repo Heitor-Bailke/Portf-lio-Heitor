@@ -40,8 +40,8 @@ const ICONS: Record<string, string[]> = {
   book: ["m2 8 10-5 10 5-10 5L2 8Zm4 2v7c4 3 8 3 12 0v-7m4-2v9"],
   briefcase: ["M3 7h18v14H3V7Zm5 0V3h8v4M3 12c6 4 12 4 18 0m-9 0v4"],
   check: ["m5 12 4 4L19 6"],
-  pause: ["M8 5v14M16 5v14"],
-  play: ["m8 4 12 8-12 8V4Z"],
+  sun: ["M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"],
+  moon: ["M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"],
   menu: ["M4 6h16M4 12h16M4 18h16"],
   close: ["m6 6 12 12M6 18 18 6"],
 };

@@ -75,7 +75,7 @@
   align-items: center;
   gap: 12px;
 }
-.motion-toggle,
+.theme-toggle,
 .menu-toggle {
   display: grid;
   place-items: center;
@@ -86,12 +86,12 @@
   border: 1px solid #6185b125;
   border-radius: 7px;
 }
-.motion-toggle:hover,
+.theme-toggle:hover,
 .menu-toggle:hover {
   border-color: #7bbcf477;
   color: white;
 }
-.motion-toggle:disabled {
+.theme-toggle:disabled {
   opacity: 0.45;
 }
 .menu-toggle {

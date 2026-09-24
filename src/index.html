@@ -8,7 +8,16 @@
       name="description"
       content="Heitor Bailke, Desenvolvedor Back-end e Front-end Júnior. Java, Spring Boot, Angular, React, APIs REST e PostgreSQL. Conheça meus projetos e minha trajetória."
     />
-    <meta name="theme-color" content="#091426" />
+    <meta name="theme-color" content="#f3f0e9" />
+    <script>
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+        const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.querySelector('meta[name="theme-color"]').content = dark ? '#191816' : '#f3f0e9';
+      })();
+    </script>
     <meta
       property="og:title"
       content="Heitor Bailke | Desenvolvedor Back-end &amp; Front-end Júnior"
