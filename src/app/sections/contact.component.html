@@ -81,7 +81,9 @@
           placeholder="Conte sobre a oportunidade ou deixe sua mensagem."
           [disabled]="isLoading"
         ></textarea></label
-      ><button class="button" type="submit" [disabled]="isLoading">
+      >
+      <app-captcha (tokenChange)="captchaToken = $event" />
+      <button class="button" type="submit" [disabled]="isLoading || !captchaToken">
         {{ isLoading ? "Enviando…" : "Enviar mensagem ↗" }}
       </button>
       <div aria-live="polite" aria-atomic="true">

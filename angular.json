@@ -16,19 +16,63 @@
             "outputPath": "dist/heitor-dev-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
-            "production": { "budgets": [{ "type": "initial", "maximumWarning": "2mb", "maximumError": "5mb" }], "outputHashing": "all" },
-            "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              }
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
-        "serve": { "builder": "@angular-devkit/build-angular:dev-server", "configurations": { "production": { "buildTarget": "heitor-dev-portfolio:build:production" }, "development": { "buildTarget": "heitor-dev-portfolio:build:development" } }, "defaultConfiguration": "development" }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "heitor-dev-portfolio:build:production"
+            },
+            "development": {
+              "buildTarget": "heitor-dev-portfolio:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
       }
     }
   }

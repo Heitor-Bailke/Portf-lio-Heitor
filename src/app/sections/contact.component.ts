@@ -1,5 +1,6 @@
 ﻿import { CommonModule } from "@angular/common";
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
+import { CaptchaComponent } from "../components/captcha.component";
 import { FormsModule, NgForm } from "@angular/forms";
 import { IconComponent } from "../components/icon.component";
 import { RevealDirective } from "../directives/reveal.directive";
@@ -9,11 +10,13 @@ import { PROFILE } from "../data/profile";
 @Component({
   selector: "app-contact",
   standalone: true,
-  imports: [CommonModule, FormsModule, IconComponent, RevealDirective],
+  imports: [CommonModule, FormsModule, IconComponent, RevealDirective, CaptchaComponent],
   templateUrl: "./contact.component.html",
 })
 export class ContactComponent implements OnDestroy {
   readonly profile = PROFILE;
+  @ViewChild(CaptchaComponent) captcha?: CaptchaComponent;
+  captchaToken = "";
   visitorName = "";
   visitorEmail = "";
   visitorPhone = "";
@@ -36,6 +39,10 @@ export class ContactComponent implements OnDestroy {
       this.errorMessage = "Preencha seu nome, um e-mail válido e a mensagem.";
       return;
     }
+    if (!this.captchaToken) {
+      this.errorMessage = "Confirme que você não é um robô antes de enviar.";
+      return;
+    }
     this.isLoading = true;
     this.submission = this.contactService
       .submitContact({
@@ -43,9 +50,11 @@ export class ContactComponent implements OnDestroy {
         email: this.visitorEmail.trim(),
         phone: this.visitorPhone.trim(),
         message: this.visitorMessage.trim(),
+        captchaToken: this.captchaToken,
       })
       .subscribe({
         next: () => {
+          this.resetCaptcha();
           this.isLoading = false;
           form.resetForm();
           this.visitorName = "";
@@ -56,6 +65,7 @@ export class ContactComponent implements OnDestroy {
             "Mensagem enviada! Obrigado pelo contato. Responderei em breve.";
         },
         error: () => {
+          this.resetCaptcha();
           this.isLoading = false;
           this.errorMessage =
             "Não foi possível enviar agora. Tente novamente ou entre em contato pelo e-mail ao lado.";
@@ -64,5 +74,9 @@ export class ContactComponent implements OnDestroy {
   }
   ngOnDestroy(): void {
     this.submission?.unsubscribe();
+  }
+  private resetCaptcha(): void {
+    this.captchaToken = "";
+    this.captcha?.reset();
   }
 }
