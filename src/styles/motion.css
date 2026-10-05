@@ -15,7 +15,7 @@
   .hero-copy {
     animation: hero-enter 0.85s cubic-bezier(0.2, 0.65, 0.3, 1) both;
   }
-  .hero app-orbit {
+  .hero app-profile-card {
     animation: hero-enter 0.9s 0.1s cubic-bezier(0.2, 0.65, 0.3, 1) both;
   }
   .mini-chart i {
@@ -55,12 +55,9 @@ html[data-motion="off"] .reveal-pending {
   transform: none;
 }
 html[data-motion="off"] .hero-copy,
-html[data-motion="off"] .hero app-orbit {
+html[data-motion="off"] .hero app-profile-card {
   animation: none !important;
   opacity: 1;
-}
-html[data-motion="off"] .orbit-scene {
-  transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -75,9 +72,6 @@ html[data-motion="off"] .orbit-scene {
   }
   .reveal-pending {
     opacity: 1;
-    transform: none;
-  }
-  .orbit-scene {
     transform: none;
   }
 }

@@ -61,7 +61,7 @@ export const TECHNOLOGIES = [
     ],
   },
 ];
-export const ORBIT_TECHNOLOGIES = [
+export const PROFILE_TECHNOLOGIES = [
   tech("Java", "java"),
   tech("Spring Boot", "spring"),
   tech("Angular", "angular"),

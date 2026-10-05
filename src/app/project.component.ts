@@ -15,6 +15,11 @@ export class ProjectComponent {
   readonly financeCode = AUTH_CONTROLLER_CODE;
   readonly profile = PROFILE;
   readonly project$;
+  readonly projects = ALL_PROJECTS;
+  adjacent(slug: string, offset: number) {
+    const index = this.projects.findIndex((project) => project.slug === slug);
+    return index < 0 ? undefined : this.projects[index + offset];
+  }
   constructor(route: ActivatedRoute) {
     this.project$ = route.paramMap.pipe(
       map((params) =>

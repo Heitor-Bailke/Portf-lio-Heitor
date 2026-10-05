@@ -1,12 +1,12 @@
 ﻿import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { IconComponent } from "../components/icon.component";
-import { OrbitComponent } from "../components/orbit.component";
+import { ProfileCardComponent } from "../components/profile-card.component";
 import { PROFILE } from "../data/profile";
 @Component({
   selector: "app-hero",
   standalone: true,
-  imports: [RouterLink, IconComponent, OrbitComponent],
+  imports: [RouterLink, IconComponent, ProfileCardComponent],
   template: ` <section id="inicio" class="hero">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="container hero-layout">
@@ -61,7 +61,7 @@ import { PROFILE } from "../data/profile";
             >
           </div>
         </div>
-        <app-orbit />
+        <app-profile-card />
       </div>
       <div class="container hero-bottom">
         <span

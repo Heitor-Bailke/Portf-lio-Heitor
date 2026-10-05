@@ -36,6 +36,10 @@
   </section>
   <section class="section">
     <div class="container case-content">
+      <figure class="case-screenshot" *ngIf="project.image">
+        <img [src]="project.image" [alt]="'Interface do projeto ' + project.title" width="1440" height="1020" loading="lazy" decoding="async" />
+        <figcaption>Interface do projeto {{ project.title }}.</figcaption>
+      </figure>
       <div
         class="implementation-grid"
         *ngIf="project.frontend || project.backend || project.database"
@@ -53,20 +57,6 @@
           <p>{{ project.database }}</p>
         </article>
       </div>
-      <figure
-        class="case-screenshot"
-        *ngIf="project.image && project.slug !== 'hb-finance'"
-      >
-        <img
-          [src]="project.image"
-          [alt]="'Interface do projeto ' + project.title"
-          width="1440"
-          height="900"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Interface do projeto {{ project.title }}.</figcaption>
-      </figure>
       <div class="case-pair">
         <article>
           <p class="eyebrow">01 / CONTEXTO</p>
@@ -103,19 +93,6 @@
         </ul>
       </article>
       <ng-container *ngIf="project.slug === 'hb-finance'">
-        <figure class="case-screenshot">
-          <img
-            src="assets/projects/hb-finance.png"
-            alt="Dashboard do HB Finance com resumo mensal e visualizações financeiras"
-            width="1440"
-            height="1020"
-            loading="lazy"
-          />
-          <figcaption>
-            Captura da versão local. Valores e lançamentos fictícios para
-            demonstração.
-          </figcaption>
-        </figure>
         <article class="case-block">
           <p class="eyebrow">POR DENTRO DO HB FINANCE</p>
           <h2>Da interface à persistência</h2>
@@ -194,6 +171,11 @@
   </section>
   <section class="github-section">
     <div class="container github-layout">
+      <nav class="case-pagination" aria-label="Navegacao entre projetos">
+        <a *ngIf="adjacent(project.slug, -1) as previous" class="text-link" [routerLink]="['/projetos', previous.slug]">{{ previous.title }}</a>
+        <a class="text-link" routerLink="/" fragment="projetos">Projetos</a>
+        <a *ngIf="adjacent(project.slug, 1) as next" class="text-link" [routerLink]="['/projetos', next.slug]">{{ next.title }}</a>
+      </nav>
       <div>
         <p class="eyebrow">VAMOS CONVERSAR SOBRE CÓDIGO?</p>
         <h2>Aberto a oportunidades<br />em Back-end & Front-end Júnior.</h2>
