@@ -319,6 +319,7 @@ app-project-card { min-width: 0; height: 100%; }
 .case-pair { display: grid; grid-template-columns: 4fr 5fr; gap: 2rem; margin-bottom: 2.5rem; }
 .case-pair > article + article { padding-top: 3rem; }
 .case-block { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line-strong); }
+.finance-detail-block { padding: 1.5rem; border: 1px solid var(--line-strong); }
 .detail-list { padding-left: 1.25rem; }
 .detail-list li { padding: 0.3rem 0 0.3rem 0.3rem; }
 .detail-list li::marker { color: var(--accent-text); }
@@ -466,6 +467,7 @@ app-project-card { min-width: 0; height: 100%; }
   .implementation-grid article, .implementation-grid article:nth-child(n) { grid-column: 1; }
   .case-pair { grid-template-columns: 1fr; gap: 1.5rem; }
   .case-pair > article + article { padding-top: 0; }
+  .finance-detail-block { padding: 1rem; }
   .finance-flow { display: grid; grid-template-columns: 1fr 1fr; }
   .finance-flow li, .finance-flow li:last-child { border: 1px solid var(--line-strong); }
   .finance-flow li:not(:last-child)::after { display: none; }
