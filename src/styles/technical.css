@@ -363,6 +363,24 @@ app-project-card { min-width: 0; height: 100%; }
 .education-card .eyebrow { margin-top: 0.75rem; color: var(--accent-text); }
 .education-card h3 { font-size: 1.1rem; }
 .education-card > p:not(.eyebrow), .education-card p.education-note { color: var(--text-secondary); font-size: 0.85rem; }
+
+/* Project detail CTA has a different layout from the repository grid. */
+.project-contact-layout {
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+}
+.project-contact-layout > .case-pagination { grid-column: 1 / -1; }
+.project-contact-layout > div:not(.case-pagination) { grid-column: 1; min-width: 0; }
+.project-contact-layout > .button { grid-column: 2; grid-row: 2; justify-self: end; }
+.project-contact-layout h2 { max-width: 18ch; }
+@media (max-width: 40rem) {
+  .project-contact-layout { grid-template-columns: 1fr; }
+  .project-contact-layout > .case-pagination,
+  .project-contact-layout > div:not(.case-pagination),
+  .project-contact-layout > .button { grid-column: 1; grid-row: auto; }
+  .project-contact-layout > .button { justify-self: start; }
+}
 .education-date { border-color: var(--line); color: var(--muted); font: 0.72rem Consolas, monospace; }
 .education-date strong { color: var(--accent-text); }
 .education-tags > span { border-color: var(--line); border-radius: 0; color: var(--text-secondary); }
