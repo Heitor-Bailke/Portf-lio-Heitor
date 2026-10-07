@@ -364,6 +364,7 @@ app-project-card { min-width: 0; height: 100%; }
 .education-card > p:not(.eyebrow), .education-card p.education-note { color: var(--text-secondary); font-size: 0.85rem; }
 
 /* Project detail CTA has a different layout from the repository grid. */
+.project-contact-section { padding-bottom: clamp(3rem, 6vw, 5rem); }
 .project-contact-layout {
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 2rem;
