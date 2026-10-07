@@ -324,8 +324,7 @@ app-project-card { min-width: 0; height: 100%; }
 .detail-list li { padding: 0.3rem 0 0.3rem 0.3rem; }
 .detail-list li::marker { color: var(--accent-text); }
 .finance-flow { gap: 0; margin: 1.25rem 0; }
-.finance-flow li { padding: 0.7rem; border: 1px solid var(--line-strong); border-right: 0; border-radius: 0; background: var(--surface); color: var(--text-secondary); font: 0.75rem Consolas, monospace; }
-.finance-flow li:last-child { border-right: 1px solid var(--line-strong); }
+.finance-flow li { padding: 0.7rem; border: 1px solid var(--line-strong); border-radius: 0; background: var(--surface); color: var(--text-secondary); font: 0.75rem Consolas, monospace; }
 .finance-flow li:not(:last-child)::after { color: var(--accent-text); }
 .data-model { gap: 0; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line-strong); }
 .data-model > div { padding: 0.85rem; border: 0; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); border-radius: 0; background: var(--surface); }
